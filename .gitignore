@@ -1,3 +1,4 @@
 .env
 backend/myenv/
 backend/uploaded_images/
+backend/ffmpeg.exe

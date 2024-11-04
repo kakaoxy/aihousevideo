@@ -102,7 +102,7 @@ const _sfc_main = {
         };
         console.log(housingData.layout);
         const response = await common_vendor.index.request({
-          url: "http://192.168.100.198:8000/add_housing/",
+          url: "http://101.126.149.86:8000/add_housing/",
           method: "POST",
           data: housingData
         });
@@ -159,7 +159,7 @@ const _sfc_main = {
     uploadImage(imagePath) {
       return new Promise((resolve, reject) => {
         common_vendor.index.uploadFile({
-          url: "http://192.168.100.198:8000/upload/image",
+          url: "http://101.126.149.86:8000/upload/image",
           // 替换为你的服务器地址
           filePath: imagePath,
           name: "files",

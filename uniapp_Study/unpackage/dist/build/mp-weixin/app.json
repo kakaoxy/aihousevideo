@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/login/login",
     "pages/listingform/listingform",
     "pages/index/index",
-    "pages/my/my"
+    "pages/video/video"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -29,7 +28,7 @@
         "selectedIconPath": "static/add.png"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/video/video",
         "text": "",
         "iconPath": "static/my.png",
         "selectedIconPath": "static/my.png"

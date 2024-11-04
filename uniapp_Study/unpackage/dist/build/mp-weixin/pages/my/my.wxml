@@ -1,1 +1,0 @@
-<scroll-view scroll-y="true" show-scrollbar="{{false}}" enhanced="{{true}}" class="main"></scroll-view>

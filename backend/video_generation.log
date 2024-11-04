@@ -1,1 +1,26 @@
-2024-11-03 23:19:16,768 - INFO - Connected successfully
+2024-11-06 15:05:28,148 - INFO - Starting video generation...
+2024-11-06 15:05:28,148 - INFO - Starting voice generation...
+2024-11-06 15:05:56,497 - INFO - Voice generation completed successfully.
+2024-11-06 15:05:56,497 - INFO - Starting audio download...
+2024-11-06 15:05:56,789 - INFO - Audio file downloaded successfully: uploaded_images/20241105202117\audio.mp3
+2024-11-06 15:05:56,789 - INFO - Voice download completed successfully.
+2024-11-06 15:05:56,789 - INFO - Starting get audio duration...
+2024-11-06 15:05:57,260 - INFO - Audio duration retrieved successfully: 76.46000000000001 seconds
+2024-11-06 15:05:57,260 - INFO - Audio duration retrieved successfully.
+2024-11-06 15:05:57,329 - INFO - Image duration retrieved successfully.
+2024-11-06 15:05:57,904 - INFO - Video generation completed successfully.
+2024-11-06 15:06:08,503 - INFO - Video file saved successfully.
+2024-11-06 15:06:08,503 - INFO - Starting generate srt...
+2024-11-06 15:06:08,505 - INFO - SRT file generated successfully.
+2024-11-06 15:06:08,505 - INFO - Starting add srt to video...
+2024-11-06 15:06:08,505 - INFO - Running FFmpeg command: ffmpeg -i uploaded_images/20241105202117\Video_of_新天地河滨花园.mp4 -vf subtitles=uploaded_images/20241105202117\Subtitles_of_新天地河滨花园.srt:force_style='Fontsize=24,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H00000000,BorderStyle=1,Outline=2,MarginV=60' uploaded_images/20241105202117\Final_Video_of_新天地河滨花园.mp4
+2024-11-06 15:06:08,945 - ERROR - FFmpeg command failed with return code 4294967254. Error output: None
+2024-11-06 15:06:08,946 - ERROR - FFmpeg command failed: Command '['ffmpeg', '-i', 'uploaded_images/20241105202117\\Video_of_新天地河滨花园.mp4', '-vf', "subtitles=uploaded_images/20241105202117\\Subtitles_of_新天地河滨花园.srt:force_style='Fontsize=24,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H00000000,BorderStyle=1,Outline=2,MarginV=60'", 'uploaded_images/20241105202117\\Final_Video_of_新天地河滨花园.mp4']' returned non-zero exit status 4294967254.
+2024-11-06 15:06:08,946 - ERROR - An error occurred during video generation: Command '['ffmpeg', '-i', 'uploaded_images/20241105202117\\Video_of_新天地河滨花园.mp4', '-vf', "subtitles=uploaded_images/20241105202117\\Subtitles_of_新天地河滨花园.srt:force_style='Fontsize=24,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H00000000,BorderStyle=1,Outline=2,MarginV=60'", 'uploaded_images/20241105202117\\Final_Video_of_新天地河滨花园.mp4']' returned non-zero exit status 4294967254.
+Traceback (most recent call last):
+  File "C:\Users\Bugco\Documents\HBuilderProjects\backend\generate_video.py", line 294, in generate_video
+    if not add_srt_to_video(video_file, srt_file_path, final_video_with_subs):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Bugco\Documents\HBuilderProjects\backend\generate_video.py", line 210, in add_srt_to_video
+    raise subprocess.CalledProcessError(result.returncode, command, result.stderr)
+subprocess.CalledProcessError: Command '['ffmpeg', '-i', 'uploaded_images/20241105202117\\Video_of_新天地河滨花园.mp4', '-vf', "subtitles=uploaded_images/20241105202117\\Subtitles_of_新天地河滨花园.srt:force_style='Fontsize=24,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H00000000,BorderStyle=1,Outline=2,MarginV=60'", 'uploaded_images/20241105202117\\Final_Video_of_新天地河滨花园.mp4']' returned non-zero exit status 4294967254.

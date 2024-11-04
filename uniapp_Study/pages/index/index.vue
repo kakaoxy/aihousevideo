@@ -170,7 +170,7 @@
 					console.log(housingData.layout);
 
 					const response = await uni.request({
-						url: 'http://192.168.100.198:8000/add_housing/',
+						url: 'http://101.126.149.86:8000/add_housing/',
 						method: 'POST',
 						data: housingData
 					});
@@ -235,7 +235,7 @@
 			uploadImage(imagePath) {
 				return new Promise((resolve, reject) => {
 					uni.uploadFile({
-						url: 'http://192.168.100.198:8000/upload/image', // 替换为你的服务器地址
+						url: 'http://101.126.149.86:8000/upload/image', // 替换为你的服务器地址
 						filePath: imagePath,
 						name: 'files',  // 注意这里应该是 'files'
 						success: (res) => {

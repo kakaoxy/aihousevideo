@@ -2,7 +2,8 @@
 	<scroll-view scroll-y="true" :show-scrollbar="false" :enhanced="true" class="scroll-main">
 		<view class="main">
 			<view class="page-space">
-				<view v-for="housing in housings" :key="housing.house_id" class="container" @click="toggleMask(housing)">
+				<view v-for="housing in housings" :key="housing.house_id" class="container"
+					@click="toggleMask(housing)">
 
 					<view class="house-card">
 						<img :src="housing.images[0]" alt="" class="image">
@@ -36,11 +37,13 @@
 
 					<!-- 弹出的按钮 -->
 					<view v-if="housing.showMask" class="popup-btn">
-						<button class="popup-btn1" :disabled="housing.is_video_generated || isGeneratingVideo" @click="generateVideo(housing)">
+						<button class="popup-btn1" :disabled="housing.is_video_generated || isGeneratingVideo"
+							@click="generateVideo(housing)">
 							{{ isGeneratingVideo ? '生成中...' : '生成视频' }}
 						</button>
 
-						<button class="popup-btn2" :disabled="!housing.is_video_generated" @click="viewVideo(housing)">查看视频</button>
+						<button class="popup-btn2" :disabled="!housing.is_video_generated"
+							@click="viewVideo(housing)">查看视频</button>
 					</view>
 				</view>
 			</view>
@@ -62,7 +65,7 @@
 				try {
 					this.isRefreshing = true;
 					const response = await uni.request({
-						url: 'http://192.168.100.198:8000/get_latest_housings',
+						url: 'http://101.126.149.86:8000/get_latest_housings',
 						method: 'GET'
 					});
 
@@ -102,7 +105,7 @@
 
 				const housingId = housing._id.$oid;
 				console.log('准备生成视频，房源ID:', housingId);
-				
+
 				// 先存储状态和房源ID
 				uni.setStorageSync('enterSource', 'generate');
 				uni.setStorageSync('housingId', housingId);
@@ -112,22 +115,22 @@
 					url: '/pages/video/video'
 				});
 
-				
+
 				uni.request({
-					url: 'http://192.168.100.198:8000/generate_video',
+					url: 'http://101.126.149.86:8000/generate_video',
 					method: 'POST',
 					header: {
 						'content-type': 'application/json'
 					},
 					data: {
-						house_id: housingId  // 修改参数名为housingId
+						house_id: housingId // 修改参数名为housingId
 					},
 					success: (res) => {
 						if (res.statusCode === 200) {
 							// 立即跳转到视频页面
 							uni.setStorageSync('enterSource', 'view');
 							uni.setStorageSync('videoUrl', housing.video_url);
-							
+
 							// 使用 reLaunch 替代 switchTab，强制重新加载页面
 							uni.reLaunch({
 								url: '/pages/video/video',
@@ -167,7 +170,7 @@
 				// 先存储视频URL
 				uni.setStorageSync('enterSource', 'view');
 				uni.setStorageSync('videoUrl', housing.video_url);
-				
+
 				// 使用 reLaunch 替代 switchTab，强制重新加载页面
 				uni.reLaunch({
 					url: '/pages/video/video',
@@ -192,8 +195,8 @@
 
 		onShow() {
 			// 新增：在页面显示时执行获取最新房屋信息的方法
-			// console.log('onShow执行获取最新房屋信息的方法');
-			// this.fetchLatestHousings();
+			console.log('onShow执行获取最新房屋信息的方法');
+			this.fetchLatestHousings();
 		},
 		onPullDownRefresh() {
 			// 新增：处理下拉刷新事件

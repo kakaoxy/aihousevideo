@@ -14,6 +14,7 @@ import json
 # 导入generate_video.py中的generate_video函数
 from generate_video import generate_video
 from generate_video import logger
+from urllib.parse import quote_plus
 
 app = FastAPI()
 
@@ -31,7 +32,9 @@ class HousingData(BaseModel):
     images: List[str]
 
 # 连接到 MongoDB
-uri = "mongodb://localhost:27017/"
+username = quote_plus("root")
+password = quote_plus("@house531..")
+uri = f"mongodb://{username}:{password}@aihousevideo.ahouse.site:27017/?authSource=admin"
 client = MongoClient(uri)
 try:
     client.admin.command('ping')
@@ -84,7 +87,7 @@ async def upload_image(files: List[UploadFile] = File(...)):
             with open(file_path, "wb") as f:
                 f.write(file_content)
 
-            image_url = f"http://192.168.100.198:8000/uploaded_images/{folder_name}/{file_name}"
+            image_url = f"http://aihousevideo.ahouse.site:8000/uploaded_images/{folder_name}/{file_name}"
             image_urls.append(image_url)
         except Exception as e:
             logger.error(f"Failed to upload image: {e}")
@@ -99,7 +102,7 @@ async def get_latest_housings():
         housings_list = []
         for housing in housings:
             housing_json = json.loads(json_util.dumps(housing))
-            housing_json["images"] = [url.replace("http://127.0.0.1:8000/", "http://192.168.100.198:8000/uploaded_images/") for url in housing_json["images"]]
+            housing_json["images"] = [url.replace("http://127.0.0.1:8000/", "http://aihousevideo.ahouse.site:8000/uploaded_images/") for url in housing_json["images"]]
             housings_list.append(housing_json)
         
         return {"housings": housings_list}
@@ -129,7 +132,7 @@ async def generate_video_endpoint(data: dict):
         logger.info('接收到房屋图片: %s', housing_data['images'])
 
         # 处理图片路径
-        image_paths = [url.replace('http://192.168.100.198:8000/', './') for url in housing_data['images']]
+        image_paths = [url.replace('http://aihousevideo.ahouse.site:8000/', './') for url in housing_data['images']]
         
 
         print('信息已经准备好，开始生成视频，请稍等...', house_title, house_info, image_paths)

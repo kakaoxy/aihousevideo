@@ -54,7 +54,7 @@ const _sfc_main = {
       const videoUrl = common_vendor.index.getStorageSync("videoUrl");
       console.log("启动了handleViewVideo，videoUrl:", videoUrl);
       if (videoUrl) {
-        const baseUrl = "http://192.168.100.198:8000";
+        const baseUrl = "http://101.126.149.86:8000";
         const processedUrl = videoUrl.replace(/^\./, "").replace(/\\/g, "/");
         const endUrl = encodeURI(processedUrl);
         this.videoUrl = baseUrl + endUrl;
@@ -71,7 +71,7 @@ const _sfc_main = {
       }
       try {
         const res = await common_vendor.index.request({
-          url: `http://192.168.100.198:8000/get_log`,
+          url: `http://101.126.149.86:8000/get_log`,
           method: "GET"
         });
         console.log("轮询日志响应:", res);
@@ -85,7 +85,7 @@ const _sfc_main = {
           if (data.status === "completed" && data.video_url) {
             this.clearPolling();
             this.isGeneratingVideo = false;
-            video_Url = `http://192.168.100.198:8000${data.video_url}`;
+            video_Url = `http://101.126.149.86:8000${data.video_url}`;
             this.videoUrl = encodeURI(video_Url);
             console.log("videoUrl:", this.videoUrl);
             this.isVideo = true;

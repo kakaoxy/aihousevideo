@@ -15,7 +15,7 @@ const _sfc_main = {
       try {
         this.isRefreshing = true;
         const response = await common_vendor.index.request({
-          url: "http://192.168.100.198:8000/get_latest_housings",
+          url: "http://101.126.149.86:8000/get_latest_housings",
           method: "GET"
         });
         if (response && response.statusCode === 200) {
@@ -57,7 +57,7 @@ const _sfc_main = {
         url: "/pages/video/video"
       });
       common_vendor.index.request({
-        url: "http://192.168.100.198:8000/generate_video",
+        url: "http://101.126.149.86:8000/generate_video",
         method: "POST",
         header: {
           "content-type": "application/json"

@@ -94,10 +94,16 @@
 					const processedUrl = videoUrl.replace(/^\./, '').replace(/\\/g, '/');
 					const endUrl = encodeURI(processedUrl);
 					this.videoUrl = baseUrl + endUrl;
+					// console.log('processedUrl:',this.videoUrl)
 					this.isVideo = true;
 
-					this.preloadVideo();
+					// 清除视频URL存储
 					uni.removeStorageSync('videoUrl');
+
+					console.log('设置的视频URL:', this.videoUrl);
+
+					// 预加载视频
+					this.preloadVideo();
 				}
 			},
 
@@ -114,9 +120,12 @@
 					});
 
 					console.log('轮询日志响应:', res);
+					if (res.statusCode === 200 && res.data) {
+						// 将返回的信息显示在页面上
+						this.logs.push(res.data.log);
+					}
 
 					if (res.statusCode === 200 && res.data) {
-						this.logs.push(res.data.log);
 						const data = res.data;
 						this.logs = data.logs || [];
 						this.scrollTop = 10000; // 自动滚动到底部
@@ -145,7 +154,10 @@
 					}
 				} catch (error) {
 					console.error('轮询日志失败:', error);
+					// 如果是网络错误，可以继续轮询
+					// 如果是其他错误，可能需要停止轮询
 					if (error.errMsg && error.errMsg.includes('request:fail')) {
+						// 网络错误，继续轮询
 						console.log('网络错误，继续轮询');
 					} else {
 						this.clearPolling();
@@ -161,14 +173,12 @@
 					this.handleVideoError('无效的房源ID');
 					return;
 				}
-				this.resetVideoState();
-				this.startPollingLogs();
-			},
-			resetVideoState() {
+
 				this.isVideo = false;
 				this.logs = [];
 				this.error = null;
 				this.isGeneratingVideo = true;
+				this.startPollingLogs();
 			},
 
 			startPollingLogs() {
@@ -177,8 +187,11 @@
 					console.error('没有找到房源ID');
 					return;
 				}
+
 				// 清除之前的轮询
 				this.clearPolling();
+
+				// 开始新的轮询
 				this.pollLogs();
 				this.pollingTimer = setInterval(() => {
 					this.pollLogs();
@@ -281,6 +294,8 @@
 					}
 				});
 			},
+
+
 
 			handleVideoError(errorMsg) {
 				console.error(errorMsg);
