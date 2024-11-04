@@ -1,0 +1,7 @@
+{
+  "name": "genVideo",
+  "dependencies": {},
+  "extensions": {
+    "uni-cloud-jql": {}
+  }
+}

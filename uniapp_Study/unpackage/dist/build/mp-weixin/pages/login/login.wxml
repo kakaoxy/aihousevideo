@@ -1,0 +1,1 @@
+<view class="container"><button wx:if="{{a}}" bindtap="{{b}}" class="login-button">微信授权登录</button><view wx:else class="user-info"><image src="{{c}}" class="avatar"></image><text class="nickname">{{d}}</text></view></view>

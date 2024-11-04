@@ -1,0 +1,15 @@
+{
+  "hash": "c9a0bd43",
+  "configHash": "912db6d5",
+  "lockfileHash": "26ca24d8",
+  "browserHash": "a122d8cc",
+  "optimized": {
+    "vuedraggable": {
+      "src": "../../../../../../../../node_modules/vuedraggable/dist/vuedraggable.umd.js",
+      "file": "vuedraggable.js",
+      "fileHash": "b2087ebc",
+      "needsInterop": true
+    }
+  },
+  "chunks": {}
+}

@@ -1,0 +1,58 @@
+{
+	"pages": [ 
+		{
+			"path": "pages/listingform/listingform",
+			"style": {
+				"navigationBarTitleText": "AI House Video"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "AI House Video"
+			}
+		},
+		{
+			"path": "pages/video/video",
+			"style": {
+				"navigationBarTitleText": "AI House Video"
+			}
+		}
+
+	],
+	"easycom": {
+		"autoscan": true
+	},
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#333333",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/listingform/listingform",
+				"text": "",
+				"iconPath": "static/listform.png",
+				"selectedIconPath": "static/listform.png"
+			},
+			{
+				"pagePath": "pages/index/index",
+				"text": "",
+				"iconPath": "static/add.png",
+				"selectedIconPath": "static/add.png"
+			},
+			{
+				"pagePath": "pages/video/video",
+				"text": "",
+				"iconPath": "static/my.png",
+				"selectedIconPath": "static/my.png"
+			}
+
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "AI House Video",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {}
+}

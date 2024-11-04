@@ -1,0 +1,134 @@
+
+.scroll-main.data-v-80bcded7 {
+		height: 100vh;
+}
+.main.data-v-80bcded7 {
+		max-width: 512px;
+		/* 512px */
+		/* 假设这是max-w-lg对应的宽度 */
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 16px;
+		/* 16px */
+		padding-right: 16px;
+		/* 16px */
+		padding-top: 16px;
+		/* 16px */
+		padding-bottom: 16px;
+		/* 16px */
+}
+.page-space.data-v-80bcded7 {
+		margin-top: 0px;
+}
+.container.data-v-80bcded7 {
+		/* 背景白色，圆角边框，添加阴影，超出部分隐藏*/
+		background-color: white;
+		border-radius: 8px;
+		box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+		overflow: hidden;
+		margin-top: 8px;
+		position: relative;
+}
+.mask.data-v-80bcded7 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.6);
+		z-index: 10;
+}
+.popup-btn.data-v-80bcded7 {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100vw;
+		/* 视口的宽度 */
+		height: 100vh;
+		/* 视口的高度 */
+		transform: translate(-50%, -50%);
+		z-index: 11;
+		border: none;
+		/* 取消边框 */
+		color: white;
+		/* 文字颜色改为白色 */
+		background-color: transparent;
+		/* 背景颜色设置为透明 */
+		padding: 10px 20px;
+		/* 根据需要调整内边距 */
+		cursor: pointer;
+		/* 鼠标悬停时显示指针 */
+		/* 可能还需要一些额外的样式来确保按钮在透明背景下可见 */
+		outline: none;
+		/* 移除点击时的轮廓线 */
+		display: flex;
+		/* 使用flex布局使按钮内的内容居中 */
+		justify-content: center;
+		/* 水平居中 */
+		align-items: center;
+		/* 垂直居中 */
+		text-align: center;
+		/* 文字居中 */
+
+		padding: 10px 20px;
+}
+.house-card.data-v-80bcded7 {
+		position: relative;
+		width: 100%;
+		height: 208px;
+}
+.image.data-v-80bcded7 {
+		width: 100%;
+		/* 设置宽度为100% */
+		height: 100%;
+		/* 设置高度为100% */
+		object-fit: cover;
+		/* 覆盖整个容器，保持宽高比，可能裁剪图片 */
+}
+.housetitle.data-v-80bcded7 {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-image: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+		padding: 12px;
+		/* p-3 等同于 padding: 1rem; */
+}
+.title-text.data-v-80bcded7 {
+		font-size: 18px;
+		/* 18px */
+		line-height: 28px;
+		/* 28px */
+		/* text-lg 等同于 font-size: 1.125rem; */
+		font-weight: 600;
+		/* font-semibold 等同于 font-weight: 600; */
+		color: white;
+		/* text-white 等同于 color: white; */
+}
+.house-details.data-v-80bcded7 {
+		padding: 16px;
+}
+.house-info.data-v-80bcded7 {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 12px;
+}
+.house-area.data-v-80bcded7,
+	.house-layout.data-v-80bcded7,
+	.house-floor.data-v-80bcded7,
+	.house-price.data-v-80bcded7 {
+		display: flex;
+		align-items: center;
+		/* 已经正确设置了垂直居中 */
+		color: #1c1c1c;
+		font-size: 14px;
+		line-height: 20px;
+}
+.house-info-icon.data-v-80bcded7 {
+		width: 16px;
+		height: 16px;
+		margin-right: 6px;
+		flex-shrink: 0;
+		color: #758599;
+		/* 防止图标被压缩 */
+}

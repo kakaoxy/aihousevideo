@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/listingform/listingform",
+    "pages/index/index",
+    "pages/my/my"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "AI House Video",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#333333",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/listingform/listingform",
+        "text": "",
+        "iconPath": "static/listform.png",
+        "selectedIconPath": "static/listform.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "",
+        "iconPath": "static/add.png",
+        "selectedIconPath": "static/add.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "",
+        "iconPath": "static/my.png",
+        "selectedIconPath": "static/my.png"
+      }
+    ]
+  },
+  "permission": {},
+  "usingComponents": {}
+}
